@@ -120,7 +120,7 @@ class Content extends PureComponent {
                         </Menu.Menu>
                     </Container>
                 </Menu>
-                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '120px' }}>
+                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '120px' ,paddingBottom: '80px' }}>
                     <Grid>
                         <Grid.Row>
                             <Grid.Column width={8}>

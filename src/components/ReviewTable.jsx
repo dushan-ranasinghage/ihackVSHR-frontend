@@ -54,7 +54,7 @@ class ReviewTable extends Component {
                         </Menu.Menu>
                     </Container>
                 </Menu>
-                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '80px' }}>
+                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '80px',paddingBottom: '80px' }}>
                 <Header as='h2'>
                     {/* <Icon name='settings' /> */}
                     <Header.Content>
