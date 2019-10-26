@@ -58,7 +58,7 @@ class Content extends Component {
                         </Menu.Item>
                         <Menu.Item as='a'>Home</Menu.Item>
                         <Menu.Item as='a'>Service History Entry</Menu.Item>
-                        <Menu.Item as='a'>Review</Menu.Item>
+                        <Menu.Item as='a'>Review Entries</Menu.Item>
                         <Menu.Menu position='right'>
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
@@ -89,20 +89,20 @@ class Content extends Component {
                             <Form.TextArea fluid label='Service Description' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' />
                         </Form.Group>
                         <Form.Group widths='equal'>
-                            <Form.Input fluid label='Added Parts' placeholder='Odometer' />
+                            <Form.Input fluid label='Added Parts' placeholder='Added Parts' />
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Input fluid label='Customer Name' placeholder='Customer Name' />
                         </Form.Group>
                         <Form.Group widths='equal'>
-                            <Form.Input fluid label='Repair Date' placeholder='Repair Date' />
+                            <Form.Input type="date" fluid label='Repair Date' placeholder='Repair Date' />
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Input fluid label='Cost' placeholder='Cost' />
                             <Form.Input fluid label='Milage' placeholder='Milage' />
                         </Form.Group>
                         <Form.Group widths='equal'>
-                        <Form.TextArea fluid label='Existing Condition of The Vehicle' style={{ fontSize: 'large' }} placeholder='Tell us more about the issues...' />
+                        <Form.TextArea fluid label='Existing Condition of The Vehicle' style={{ fontSize: 'large' }} placeholder='Existing Condition of The Vehicle' />
                         </Form.Group>
                         <Form.Button floated="right" primary>Submit</Form.Button>
                     </Form>
