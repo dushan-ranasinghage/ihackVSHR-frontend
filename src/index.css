@@ -49,7 +49,7 @@ ul, ol {
   font-weight: bold;
   text-transform: none;
   letter-spacing: 0;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,1);
 }
 
 .legal li {
@@ -72,4 +72,14 @@ ul, ol {
 .ui.grid>.column:not(.row) {
   padding-top: 12rem;
   padding-bottom: 12rem;
+}
+
+.logo-sfdc a {
+  display: block;
+  color: #9e93ab;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: 10px;
 }

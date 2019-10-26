@@ -23,7 +23,7 @@ class LoginForm extends Component {
 
   onSubmit = () => {
     const { value1, value2 } = this.state
-    if (value1 === 'wot' && value2 === 'wot') {
+    if (value1 === 'kavinda' && value2 === '#kavinda2019') {
       this.props.history.push('/content')
     } else {
       this.setState({ err: true })
@@ -37,11 +37,10 @@ class LoginForm extends Component {
           height: '100vh',
           marginTop: '0rem',
           backgroundImage: "url(" + "https://www.planetautobodyparts.com/wp-content/uploads/2018/04/About-Choosing-an-Auto-Service-Centre-1.jpg" + ")"
-          // backgroundImage: "url(" + "https://wallpapercave.com/wp/OaCk2ys.jpg" + ")"
         }}
         verticalAlign='middle'>
 
-        <Grid.Column style={{ maxWidth: 450 }}>
+        <Grid.Column style={{ maxWidth: 450, marginTop: '90px', }}>
 
           <Header as='h1' color='teal' textAlign='center' style={{ fontSize: '55px', textShadow: '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white' }}>
             Log-in
@@ -52,11 +51,8 @@ class LoginForm extends Component {
               width: '100%'
             }}
             color="red"
-            header='Vehicle Service History Report v1.0'
-            description={[
-              'Lorem ipsum dolor sit amet, consectetur adipiscing,',
-              ' elit, sed do eiusmod tempor incididunt ut labore et dolore',
-            ].join('')}
+            header='Vehicle History Report v1.0'
+            
           />
           <Form size='large'>
             <Segment stacked>
