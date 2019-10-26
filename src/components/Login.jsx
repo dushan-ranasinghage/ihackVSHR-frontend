@@ -26,12 +26,11 @@ class LoginForm extends Component {
 
   onSubmit = () => {
     const { value1, value2 } = this.state
-    debugger
     this.props.userLogin(value1,value2)
-    if(true==true){
+    if(value1=="kavinda", value2=="kavinda2019"){
       this.props.history.push('/servicepage')
     } else{
-      debugger
+      this.setState({err:'Username or Password Incorrect'})
     }
   }
 

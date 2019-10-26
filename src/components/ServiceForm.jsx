@@ -46,6 +46,7 @@ class Content extends Component {
         this.handleChange9 = this.handleChange9.bind(this)
         this.handleChange10 = this.handleChange10.bind(this)
         this.handleChange11 = this.handleChange11.bind(this)
+        this.myRef = React.createRef() 
     }
 
     state = {
@@ -137,6 +138,7 @@ class Content extends Component {
             inputValue11
         } = this.state
         console.log("Onsubmit", this.state)
+        this.myRef.current.scrollTo(0, 0);
         this.props.postVehicleHistory(inputValue1,
             inputValue2,
             inputValue3,
@@ -155,11 +157,11 @@ class Content extends Component {
         console.log("Props", this.props)
         console.log("State", this.state)
         return (
-            <div>
+            <div ref={this.myRef}>
                 <Menu fixed='top' inverted style={{ minHeight: '50px', boxShadow: '0 3px 2px -2px grey' }}>
-                    <Container>
+                    <Container class="navbar">
                         <Link to="/content"><Menu.Item as='a' header>
-                            VHR
+                            VHR Wallet
                     </Menu.Item></Link>
                         <Link to="/content"> <Menu.Item as='a'>Home</Menu.Item></Link>
                         <Link to="/servicepage"><Menu.Item as='a'>Service History Entry</Menu.Item></Link>
@@ -222,7 +224,11 @@ class Content extends Component {
                     </Form>
 
                 </Container>
-
+                <div>
+          <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
+          <Link to="/content"><a aria-current="page" class="ui teal button active" role="button" href="/layouts">
+              <i aria-hidden="true" class="left arrow icon"></i>Dashboard</a></Link></div>
+        </div>
                 <Footer />
 
             </div>

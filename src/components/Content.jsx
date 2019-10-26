@@ -99,16 +99,20 @@ class Content extends PureComponent {
             <div>
 
                 <Menu fixed='top' inverted style={{ minHeight: '50px', boxShadow: '0 3px 2px -2px grey' }}>
-                    <Container>
+                    <Container class="navbar">
                         <Link to="/content"><Menu.Item as='a' header>
-                            VHR
+                            VHR Wallet
                     </Menu.Item></Link>
                         <Link to="/content"> <Menu.Item as='a'>Home</Menu.Item></Link>
                         <Link to="/servicepage"><Menu.Item as='a'>Service History Entry</Menu.Item></Link>
                         <Link to="/reviewpage"><Menu.Item as='a'>Review</Menu.Item></Link>
                         <Menu.Menu position='right'>
                             {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
-
+                            <Menu.Item style={{
+                                fontSize:'small'
+                            }}>
+                                Kavinda Senarathne
+                            </Menu.Item>
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
                                 window.location.href = '/';
@@ -145,7 +149,7 @@ class Content extends PureComponent {
                                                 <Feed.Content>
                                                     <Feed.Date content='1 day ago' />
                                                     <Feed.Summary>
-                                                    Mrs.Jane serviced <a>Toyota Prius</a>.
+                                                    Mrs.Jane serviced <a>Mitsubishi Evo X</a>.
                                             </Feed.Summary>
                                                 </Feed.Content>
                                             </Feed.Event>
@@ -157,7 +161,7 @@ class Content extends PureComponent {
                                                 <Feed.Content>
                                                     <Feed.Date content='2 days ago' />
                                                     <Feed.Summary>
-                                                    Mrs.Kavinda serviced <a>Toyota Prius</a>.
+                                                    Mrs.Kavinda serviced <a>BMW i8</a>.
                                                 </Feed.Summary>
                                                 </Feed.Content>
                                             </Feed.Event>
@@ -168,7 +172,7 @@ class Content extends PureComponent {
                                                 <Feed.Content>
                                                     <Feed.Date content='2 days ago' />
                                                     <Feed.Summary>
-                                                    Mr.Indunil serviced <a>Toyota Prius</a>.
+                                                    Mr.Indunil serviced <a>Honda civic</a>.
                                             </Feed.Summary>
                                                 </Feed.Content>
                                             </Feed.Event>
@@ -222,7 +226,11 @@ class Content extends PureComponent {
                     </Grid>
                 </Container>
 
-
+                <div>
+          <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
+          <Link to="/servicepage"> <a aria-current="page" class="ui teal button active" role="button" href="/layouts">
+              <i aria-hidden="true" class="right arrow icon" style={{paddingRight: '30px'}}></i>Service History</a></Link></div>
+        </div>
                 <Footer />
 
             </div>

@@ -19,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+
         <HashRouter>
           <React.Fragment>
             <Route path="/" exact component={Login} />
