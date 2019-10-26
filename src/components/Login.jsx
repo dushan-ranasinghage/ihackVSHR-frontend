@@ -28,7 +28,7 @@ class LoginForm extends Component {
     const { value1, value2 } = this.state
     this.props.userLogin(value1,value2)
     if(value1=="kavinda", value2=="kavinda2019"){
-      this.props.history.push('/servicepage')
+      this.props.history.push('/content')
     } else{
       this.setState({err:'Username or Password Incorrect'})
     }
