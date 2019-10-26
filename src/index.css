@@ -110,3 +110,23 @@ ul, ol {
     width: 100%;
     padding:20px;
 }
+
+.float-btn{
+  animation: 1.5s ease-in-out 0s infinite normal none running back-to-docs;
+  animation: 1.5
+}
+
+.navbar{
+  width: 100% !important;
+}
+
+.ui.menu>.container, .ui.menu>.grid {
+  display: flex;
+  align-items: inherit;
+  width: 100%;
+  flex-direction: inherit;
+}
+
+.ui.inverted.menu .item:before {
+  background:none ;
+}
