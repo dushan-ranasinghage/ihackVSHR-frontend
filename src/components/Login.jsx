@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { userLogin } from '../actions/index'
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import { Button, Form, Grid, Header, Message, Segment, Card } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
@@ -23,14 +26,17 @@ class LoginForm extends Component {
 
   onSubmit = () => {
     const { value1, value2 } = this.state
-    if (value1 === 'kavinda' && value2 === 'kavinda2019') {
-      this.props.history.push('/content')
-    } else {
-      this.setState({ err: true })
+    debugger
+    this.props.userLogin(value1,value2)
+    if(true==true){
+      this.props.history.push('/servicepage')
+    } else{
+      debugger
     }
   }
 
   render(props) {
+    console.log("PROPS",this.props)
     return (
       <Grid textAlign='center'
         style={{
@@ -54,7 +60,7 @@ class LoginForm extends Component {
             header='Vehicle History Report v1.0'
             description={[
               'Username: kavinda ,',
-              'Password: #kavinda2019',
+              'Password: kavinda2019',
             ].join('')}
           />
           <Form size='large'>
@@ -107,4 +113,16 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(LoginForm)
+function mapStateToProps(state) {
+  return {
+      user: state.user
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+      userLogin
+  }, dispatch)
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm))

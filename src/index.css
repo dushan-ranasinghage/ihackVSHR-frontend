@@ -84,18 +84,29 @@ ul, ol {
   font-size: 10px;
 }
 
-.ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url] {
-  background: #cacaca7d !important;
+
+.ui.menu>.container, .ui.menu>.grid {
+  display: flex;
+  align-items: inherit;
+  font-size: large;
+  flex-direction: inherit;
 }
 
-.ui.form input[type=date]{
-  background: #cacaca7d !important;
-}
-
-.ui.form input[type=password]{
-  background: #cacaca7d !important;
-}
-
-.ui.form textarea {
-  background: #cacaca7d !important;
+.cardx{
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 290px;
+    min-height: 0;
+    background: #fff;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    transition: box-shadow .1s ease,transform .1s ease;
+    z-index: '';
+    height: 100%;
+    width: 100%;
+    padding:20px;
 }

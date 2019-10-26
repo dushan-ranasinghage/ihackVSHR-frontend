@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux'
 
-import test from './test';
+import test from './test'
+import user from './user'
+import vehiclehistory from './vehiclehistory'
 
 const rootReducer = combineReducers({
-    test
+    test,
+    user,
+    vehiclehistory
 })
 
 export default rootReducer;

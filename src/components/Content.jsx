@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
     Container,
     Divider,
@@ -9,14 +9,28 @@ import {
     Form,
     Table,
     Icon,
-    Button
+    Button,
+    Image,
+    Card,
+    Grid,
+    Feed
 } from 'semantic-ui-react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    HashRouter
+} from "react-router-dom";
+import {
+    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  } from 'recharts';
 import { withRouter } from 'react-router'
 import { getTestData } from '../actions/index'
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import axios from 'axios'
-import NavBar from './NavBar'
+import Footer from './Footer'
 
 const options = [
     { key: 'a', text: 'Test 1', value: 'test1' },
@@ -24,7 +38,36 @@ const options = [
     { key: 'c', text: 'Test 3', value: 'test3' },
 ]
 
-class Content extends Component {
+const description = [
+    'Amy is a violinist with 2 years experience in the wedding industry.',
+    'She enjoys the outdoors and currently resides in upstate New York.',
+].join(' ')
+
+const data = [
+    {
+      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+    },
+    {
+      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+    },
+    {
+      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+    },
+    {
+      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+    },
+    {
+      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+    },
+    {
+      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+    },
+    {
+      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+    },
+  ];
+
+class Content extends PureComponent {
     constructor(props) {
         super(props);
         this.handleChange1 = this.handleChange1.bind(this)
@@ -45,21 +88,27 @@ class Content extends Component {
         });
     }
 
+
+    static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
+
     render() {
         const { value } = this.state
         console.log("Props", this.props)
         console.log("State", this.state)
         return (
             <div>
-                <Menu fixed='top' inverted>
+
+                <Menu fixed='top' inverted style={{ minHeight: '50px', boxShadow: '0 3px 2px -2px grey' }}>
                     <Container>
-                        <Menu.Item as='a' header>
+                        <Link to="/content"><Menu.Item as='a' header>
                             VHR
-                        </Menu.Item>
-                        <Menu.Item as='a'>Home</Menu.Item>
-                        <Menu.Item as='a'>Service History Entry</Menu.Item>
-                        <Menu.Item as='a'>Review Entries</Menu.Item>
+                    </Menu.Item></Link>
+                        <Link to="/content"> <Menu.Item as='a'>Home</Menu.Item></Link>
+                        <Link to="/servicepage"><Menu.Item as='a'>Service History Entry</Menu.Item></Link>
+                        <Link to="/reviewpage"><Menu.Item as='a'>Review</Menu.Item></Link>
                         <Menu.Menu position='right'>
+                            {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
+
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
                                 window.location.href = '/';
@@ -67,82 +116,115 @@ class Content extends Component {
                         </Menu.Menu>
                     </Container>
                 </Menu>
+                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '120px' }}>
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width={8}>
+                                <Card>
+                                    <Card.Content>
+                                        <Card.Header as='h3'>Recent Activity</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Feed>
+                                            <Feed.Event>
+                                                <Feed.Label>
+                                                <Icon name='user' size='small' />
+                                                </Feed.Label>
+                                                <Feed.Content>
+                                                    <Feed.Date content='1 day ago' />
+                                                    <Feed.Summary>
+                                                        Mr.Dushan serviced <a>Toyota Prius</a>.
+                                            </Feed.Summary>
+                                                </Feed.Content>
+                                            </Feed.Event>
 
-                <Container text style={{ marginTop: '7em', minHeight: '100vh', minWidth: '1100px' }}>
+                                            <Feed.Event>
+                                            <Feed.Label>
+                                                <Icon name='user' size='small' />
+                                                </Feed.Label>
+                                                <Feed.Content>
+                                                    <Feed.Date content='1 day ago' />
+                                                    <Feed.Summary>
+                                                    Mrs.Jane serviced <a>Toyota Prius</a>.
+                                            </Feed.Summary>
+                                                </Feed.Content>
+                                            </Feed.Event>
 
-                    <Header as='h2'>
-                        {/* <Icon name='settings' /> */}
-                        <Header.Content>
-                            Service Entry Details
-                        <Header.Subheader>Manage your preferences</Header.Subheader>
-                        </Header.Content>
-                    </Header>
-                    <Divider clearing />
+                                            <Feed.Event>
+                                            <Feed.Label>
+                                                <Icon name='user' size='small' />
+                                                </Feed.Label>
+                                                <Feed.Content>
+                                                    <Feed.Date content='2 days ago' />
+                                                    <Feed.Summary>
+                                                    Mrs.Kavinda serviced <a>Toyota Prius</a>.
+                                                </Feed.Summary>
+                                                </Feed.Content>
+                                            </Feed.Event>
+                                            <Feed.Event>
+                                            <Feed.Label>
+                                                <Icon name='user' size='small' />
+                                                </Feed.Label>
+                                                <Feed.Content>
+                                                    <Feed.Date content='2 days ago' />
+                                                    <Feed.Summary>
+                                                    Mr.Indunil serviced <a>Toyota Prius</a>.
+                                            </Feed.Summary>
+                                                </Feed.Content>
+                                            </Feed.Event>
 
-                    <Form>
-                        <Form.Group widths='equal'>
-                            <Form.Input fluid label='Vehicle Registration Number' placeholder='Full Name' />
-                            <Form.Input fluid label='Brand' placeholder='Brand' />
-                            <Form.Input fluid label='Model Number' placeholder='Model Number' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Form.TextArea fluid label='Service Description' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Form.Input fluid label='Added Parts' placeholder='Added Parts' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Form.Input fluid label='Customer Name' placeholder='Customer Name' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Form.Input type="date" fluid label='Repair Date' placeholder='Repair Date' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Form.Input fluid label='Cost' placeholder='Cost' />
-                            <Form.Input fluid label='Milage' placeholder='Milage' />
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                        <Form.TextArea fluid label='Existing Condition of The Vehicle' style={{ fontSize: 'large' }} placeholder='Existing Condition of The Vehicle' />
-                        </Form.Group>
-                        <Form.Button floated="right" primary>Submit</Form.Button>
-                    </Form>
+                                            <Feed.Event>
+                                            <Feed.Label>
+                                                <Icon name='user' size='small' />
+                                                </Feed.Label>
+                                                <Feed.Content>
+                                                    <Feed.Date content='2 days ago' />
+                                                    <Feed.Summary>
+                                                    Mr.Ruvin serviced <a>Toyota Prius</a>.
+                                                </Feed.Summary>
+                                                </Feed.Content>
+                                            </Feed.Event>
+                                        </Feed>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column width={8}>
+                                <div class="cardx">
+                                <Header as='h3'>Fourth Header</Header>
+                                <BarChart
+        width={500}
+        height={300}
+        data={data}
+        margin={{
+          top: 5, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="pv" fill="#8884d8" />
+        <Bar dataKey="uv" fill="#82ca9d" />
+      </BarChart>
+                                </div>
+                            </Grid.Column>
+                        </Grid.Row>
 
+                        <Grid.Row>
+                            <Grid.Column width={8}>
+                                {/* <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' /> */}
+                            </Grid.Column>
+                            <Grid.Column width={8}>
+                                {/* <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' /> */}
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
                 </Container>
 
 
-                <Segment inverted vertical style={{
-                    margin: '1em 0em 0em',
-                    padding: '1em 0em',
-                    width: '100%',
-                    position: 'fixed',
-                    bottom: '0px'
-                }}>
-                    <Container textAlign='center'>
-                        <Divider inverted section style={{
-                            marginTop: '1rem',
-                            marginBottom: '1rem'
-                        }} />
-                        <List horizontal inverted divided link size='small'>
-                            <List.Item as='a' href='#'>
-                                About Us
-                            </List.Item>
-                            <List.Item as='a' href='#'>
-                                Contact Us
-                            </List.Item>
-                            <List.Item as='a' href='#'>
-                                Terms and Conditions
-                            </List.Item>
-                            <List.Item as='a' href='#'>
-                                Privacy Policy
-                            </List.Item>
-                            <List.Item as='a' href='#'>
-                                <small>&copy; Copyright 2019, Team White Walkers</small>
-                            </List.Item>
+                <Footer />
 
-                        </List>
-                        {/* <center>Designed By: dExTeR</center> */}
-                    </Container>
-                </Segment>
             </div>
         )
     }
@@ -162,3 +244,58 @@ function mapDispatchToProps(dispatch) {
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Content))
 
+
+
+// import React, { PureComponent } from 'react';
+// import {
+//   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+// } from 'recharts';
+
+// const data = [
+//   {
+//     name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+//   },
+//   {
+//     name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+//   },
+//   {
+//     name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+//   },
+//   {
+//     name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+//   },
+//   {
+//     name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+//   },
+//   {
+//     name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+//   },
+//   {
+//     name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+//   },
+// ];
+
+// export default class Example extends PureComponent {
+//   static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
+
+//   render() {
+//     return (
+//       <BarChart
+//         width={500}
+//         height={300}
+//         data={data}
+//         margin={{
+//           top: 5, right: 30, left: 20, bottom: 5,
+//         }}
+//       >
+//         <CartesianGrid strokeDasharray="3 3" />
+//         <XAxis dataKey="name" />
+//         <YAxis />
+//         <Tooltip />
+//         <Legend />
+//         <Bar dataKey="pv" fill="#8884d8" />
+//         <Bar dataKey="uv" fill="#82ca9d" />
+//       </BarChart>
+//     );
+//   }
+// }

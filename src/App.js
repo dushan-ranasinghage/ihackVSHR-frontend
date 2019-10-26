@@ -7,13 +7,12 @@ import { HashRouter, Route } from 'react-router-dom'
 import reducers from './reducers';
 
 import Login from './components/Login'
+import ServiceForm from './components/ServiceForm'
+import ReviewPage from './components/ReviewTable'
 import Content from './components/Content'
 
 // Apply Thunk middleware
 const middleware = applyMiddleware(thunk);
-// Create enhancer
-// const enhancer = compose(middleware, (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
-// Create store
 const store = createStore(reducers, middleware);
 
 class App extends Component {
@@ -23,7 +22,9 @@ class App extends Component {
         <HashRouter>
           <React.Fragment>
             <Route path="/" exact component={Login} />
-            <Route path="/content/" component={Content} />
+            <Route path="/content" component={Content} />
+            <Route path="/servicepage" component={ServiceForm} />
+            <Route path="/reviewpage" component={ReviewPage} />
           </React.Fragment>
         </HashRouter>
       </Provider>
