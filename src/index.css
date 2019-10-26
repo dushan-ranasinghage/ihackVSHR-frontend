@@ -69,10 +69,10 @@ ul, ol {
 
 
 
-.ui.grid>.column:not(.row) {
+/* .ui.grid>.column:not(.row) {
   padding-top: 12rem;
   padding-bottom: 12rem;
-}
+} */
 
 .logo-sfdc a {
   display: block;
