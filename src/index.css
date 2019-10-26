@@ -92,6 +92,10 @@ ul, ol {
   background: #cacaca7d !important;
 }
 
+.ui.form input[type=password]{
+  background: #cacaca7d !important;
+}
+
 .ui.form textarea {
   background: #cacaca7d !important;
 }

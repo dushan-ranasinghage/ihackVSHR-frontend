@@ -61,6 +61,9 @@ class LoginForm extends Component {
                 iconPosition='left'
                 placeholder='Username'
                 value={this.state.value1}
+                style={{
+                  backgroundColor:'#fff'
+                }}
                 onChange={this.handleChange1}
               />
               <Form.Input
