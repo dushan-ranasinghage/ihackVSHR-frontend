@@ -83,3 +83,11 @@ ul, ol {
   letter-spacing: .05em;
   font-size: 10px;
 }
+
+.ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url] {
+  background: #cacaca7d !important;
+}
+
+.ui.form textarea {
+  background: #cacaca7d !important;
+}

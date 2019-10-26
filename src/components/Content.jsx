@@ -31,11 +31,11 @@ class Content extends Component {
     }
 
     state = {
-        
+
     }
 
     componentDidMount() {
-        
+
     }
 
     handleChange1(e) {
@@ -81,23 +81,28 @@ class Content extends Component {
 
                     <Form>
                         <Form.Group widths='equal'>
-                            <Form.Input fluid label='Full Name' placeholder='Full Name' />
-                            <Form.Input type="date" fluid label='Date' placeholder='Date' />
+                            <Form.Input fluid label='Vehicle Registration Number' placeholder='Full Name' />
+                            <Form.Input fluid label='Brand' placeholder='Brand' />
+                            <Form.Input fluid label='Model Number' placeholder='Model Number' />
                         </Form.Group>
                         <Form.Group widths='equal'>
-                            <Form.Input fluid label='Odometer' placeholder='Odometer' />
-                            <Form.Input fluid label='Work Order' placeholder='Work Order' />
+                            <Form.TextArea fluid label='Service Description' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' />
                         </Form.Group>
-                       
-                        <Form.TextArea fluid label='Service Task' style={{fontSize:'large'}} placeholder='Tell us more about the services...' />
-                        <Form.TextArea fluid label='Issues' style={{fontSize:'large'}} placeholder='Tell us more about the issues...' />
                         <Form.Group widths='equal'>
-                            <Form.Select
-                                fluid
-                                label='Vendor'
-                                options={options}
-                                placeholder='Vendor'
-                            />
+                            <Form.Input fluid label='Added Parts' placeholder='Odometer' />
+                        </Form.Group>
+                        <Form.Group widths='equal'>
+                            <Form.Input fluid label='Customer Name' placeholder='Customer Name' />
+                        </Form.Group>
+                        <Form.Group widths='equal'>
+                            <Form.Input fluid label='Repair Date' placeholder='Repair Date' />
+                        </Form.Group>
+                        <Form.Group widths='equal'>
+                            <Form.Input fluid label='Cost' placeholder='Cost' />
+                            <Form.Input fluid label='Milage' placeholder='Milage' />
+                        </Form.Group>
+                        <Form.Group widths='equal'>
+                        <Form.TextArea fluid label='Existing Condition of The Vehicle' style={{ fontSize: 'large' }} placeholder='Tell us more about the issues...' />
                         </Form.Group>
                         <Form.Button floated="right" primary>Submit</Form.Button>
                     </Form>
