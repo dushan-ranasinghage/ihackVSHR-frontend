@@ -52,7 +52,10 @@ class LoginForm extends Component {
             }}
             color="red"
             header='Vehicle History Report v1.0'
-            
+            description={[
+              'Username: kavinda ,',
+              'Password: #kavinda2019',
+            ].join('')}
           />
           <Form size='large'>
             <Segment stacked>
