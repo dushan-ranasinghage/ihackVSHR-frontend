@@ -23,7 +23,7 @@ class LoginForm extends Component {
 
   onSubmit = () => {
     const { value1, value2 } = this.state
-    if (value1 === 'kavinda' && value2 === '#kavinda2019') {
+    if (value1 === 'kavinda' && value2 === 'kavinda2019') {
       this.props.history.push('/content')
     } else {
       this.setState({ err: true })
@@ -65,7 +65,7 @@ class LoginForm extends Component {
                 placeholder='Username'
                 value={this.state.value1}
                 style={{
-                  backgroundColor:'#fff'
+                  backgroundColor: '#fff'
                 }}
                 onChange={this.handleChange1}
               />
