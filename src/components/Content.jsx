@@ -45,26 +45,35 @@ const description = [
 
 const data = [
     {
-      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+      name: 'January', 2018: 4000, 2019: 2400, amt: 2400,
     },
     {
-      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+      name: 'February', 2018: 3000, 2019: 1398, amt: 2210,
     },
     {
-      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+      name: 'March', 2018: 2000, 2019: 9800, amt: 2290,
     },
     {
-      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+      name: 'April', 2018: 2780, 2019: 3908, amt: 2000,
     },
     {
-      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+      name: 'May', 2018: 1890, 2019: 4800, amt: 2181,
     },
     {
-      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+      name: 'June', 2018: 2390, 2019: 3800, amt: 2500,
     },
     {
-      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+      name: 'July', 2018: 3490, 2019: 4300, amt: 2100,
     },
+    {
+      name: 'August', 2018: 2000, 2019: 9800, amt: 2290,
+    },
+    {
+      name: 'September', 2018: 2780, 2019: 3908, amt: 2000,
+    },
+    {
+      name: 'October', 2018: 1890, 2019: 4800, amt: 2181,
+    }
   ];
 
 class Content extends PureComponent {
@@ -123,7 +132,7 @@ class Content extends PureComponent {
                 <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '120px' ,paddingBottom: '80px' }}>
                     <Grid>
                         <Grid.Row>
-                            <Grid.Column width={8}>
+                            <Grid.Column width={5}>
                                 <Card>
                                     <Card.Content>
                                         <Card.Header as='h3'>Recent Activity</Card.Header>
@@ -192,9 +201,9 @@ class Content extends PureComponent {
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
-                            <Grid.Column width={8}>
+                            <Grid.Column width={11}>
                                 <div class="cardx">
-                                <Header as='h3'>Fourth Header</Header>
+                                <Header as='h3'>2018 and 2019 profit comparison</Header>
                                 <BarChart
         width={500}
         height={300}
@@ -208,8 +217,8 @@ class Content extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="pv" fill="#8884d8" />
-        <Bar dataKey="uv" fill="#82ca9d" />
+        <Bar dataKey="2018" fill="#8884d8" />
+        <Bar dataKey="2019" fill="#82ca9d" />
       </BarChart>
                                 </div>
                             </Grid.Column>
