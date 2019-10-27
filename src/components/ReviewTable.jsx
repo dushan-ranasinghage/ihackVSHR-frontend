@@ -76,18 +76,17 @@ class ReviewTable extends Component {
                             <Table.HeaderCell>Action</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-
-                    <Table.Body>
-                          
+<Table.Body>
+                       
 {this.props && this.props.vehiclehistory && this.props.vehiclehistory && this.props.vehiclehistory.historyData && this.props.vehiclehistory.historyData.map( (item, i)=>
 <Table.Row key={i}>
                                     <Table.Cell>{item.customer_name}</Table.Cell>
                                     <Table.Cell>{item.vehicle_reg_no}</Table.Cell>
                                     <Table.Cell>{item.service_description}</Table.Cell>
                                     <Table.Cell>
-                                        <Button positive onClick={()=>this.props.approveVehicleHistory(item.vehicle_reg_no)}>Approve</Button>
+                                        <Button positive onClick={()=>this.props.approveVehicleHistory()}>Approve</Button>
                                     </Table.Cell>
-                                </Table.Row>)} 
+                                </Table.Row>)}   
 
                     </Table.Body>
                 </Table>

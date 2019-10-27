@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export function getVeicleHistory() {
     return (dispatch) => {
-        axios.get("http://localhost:4000/vehiclereg")
+        axios.get("https://vhrwallet-server.herokuapp.com/vehiclereg")
             .then(res => {
                 dispatch({ type: 'GET_VEHICLE_HISTORY', payload: res.data })
             })
@@ -31,7 +31,7 @@ export function postVehicleHistory(val1, val2, val3, val4, val5, val6, val7, val
         }
 
     return (dispatch) => {
-        axios.post("http://localhost:4000/vehiclereg", newReport)
+        axios.post("https://vhrwallet-server.herokuapp.com/vehiclereg", newReport)
             .then(res => {
                 dispatch({ type: 'POST_VEHICLE_HISTORY', payload: res.data })
             })
@@ -44,7 +44,7 @@ export function postVehicleHistory(val1, val2, val3, val4, val5, val6, val7, val
 export function approveVehicleHistory(vehicle_reg_no) {
     debugger
     return (dispatch) => {
-        axios.patch("http://localhost:4000/vehiclereg/vehicleno/"+vehicle_reg_no)
+        axios.patch("https://vhrwallet-server.herokuapp.com/vehiclereg/vehicleno/"+vehicle_reg_no, {is_approved: true})
             .then(res => {
                 debugger
                 dispatch({ type: 'VEHICLE_HISTORY_APPROVE', payload: res.data })
