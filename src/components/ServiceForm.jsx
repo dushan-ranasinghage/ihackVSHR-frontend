@@ -140,17 +140,17 @@ class Content extends Component {
         } = this.state
         console.log("Onsubmit", this.state)
         this.myRef.current.scrollTo(0, 0);
-        // this.props.postVehicleHistory(inputValue1,
-        //     inputValue2,
-        //     inputValue3,
-        //     inputValue4,
-        //     inputValue5,
-        //     inputValue6,
-        //     inputValue7,
-        //     inputValue8,
-        //     inputValue9,
-        //     inputValue10,
-        //     inputValue11)
+        this.props.postVehicleHistory(inputValue1,
+            inputValue2,
+            inputValue3,
+            inputValue4,
+            inputValue5,
+            inputValue6,
+            inputValue7,
+            inputValue8,
+            inputValue9,
+            inputValue10,
+            inputValue11)
     }
 
     render() {
