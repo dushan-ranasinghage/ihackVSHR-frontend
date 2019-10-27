@@ -11,7 +11,9 @@ import {
     Icon,
     Button,
     Image,
-    Checkbox
+    Checkbox,
+    Dimmer,
+    Loader
 } from 'semantic-ui-react'
 import {
     BrowserRouter as Router,
@@ -34,7 +36,6 @@ class ReviewTable extends Component {
         console.log("View Table", this.props)
         return (
             <div>
-            
 
                 <Menu fixed='top' inverted style={{ minHeight: '50px', boxShadow: '0 3px 2px -2px grey' }}>
                     <Container class="navbar">
@@ -67,6 +68,7 @@ class ReviewTable extends Component {
                     </Header.Content>
                 </Header>
                 <Divider clearing />
+                <Segment>
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -77,19 +79,20 @@ class ReviewTable extends Component {
                         </Table.Row>
                     </Table.Header>
 <Table.Body>
-                       
+
 {this.props && this.props.vehiclehistory && this.props.vehiclehistory && this.props.vehiclehistory.historyData && this.props.vehiclehistory.historyData.map( (item, i)=>
 <Table.Row key={i}>
                                     <Table.Cell>{item.customer_name}</Table.Cell>
                                     <Table.Cell>{item.vehicle_reg_no}</Table.Cell>
                                     <Table.Cell>{item.service_description}</Table.Cell>
                                     <Table.Cell>
+                                    <Button negative>Reject</Button>
                                         <Button positive onClick={()=>this.props.approveVehicleHistory()}>Approve</Button>
                                     </Table.Cell>
                                 </Table.Row>)}   
 
                     </Table.Body>
-                </Table>
+                </Table></Segment>
             </Container>
             <div>
           <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
