@@ -21,7 +21,7 @@ import {
     HashRouter
 } from "react-router-dom";
 import { withRouter } from 'react-router'
-import { getVeicleHistory } from '../actions/index'
+import { getVeicleHistory, approveVehicleHistory } from '../actions/index'
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import Footer from './Footer'
@@ -46,7 +46,11 @@ class ReviewTable extends Component {
                         <Link to="/reviewpage"><Menu.Item as='a'>Review</Menu.Item></Link>
                         <Menu.Menu position='right'>
                             {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
-
+                            <Menu.Item style={{
+                                fontSize:'small'
+                            }}>
+                                {/* Kavinda Senarathne */}
+                            </Menu.Item>
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
                                 window.location.href = '/';
@@ -67,8 +71,8 @@ class ReviewTable extends Component {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>User Name</Table.HeaderCell>
-                            <Table.HeaderCell>Service Details</Table.HeaderCell>
                             <Table.HeaderCell>Vehicle Number</Table.HeaderCell>
+                            <Table.HeaderCell>Service Details</Table.HeaderCell>
                             <Table.HeaderCell>Action</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
@@ -78,10 +82,10 @@ class ReviewTable extends Component {
 {this.props && this.props.vehiclehistory && this.props.vehiclehistory && this.props.vehiclehistory.historyData && this.props.vehiclehistory.historyData.map( (item, i)=>
 <Table.Row key={i}>
                                     <Table.Cell>{item.customer_name}</Table.Cell>
-                                    <Table.Cell>{item.service_description}</Table.Cell>
                                     <Table.Cell>{item.vehicle_reg_no}</Table.Cell>
+                                    <Table.Cell>{item.service_description}</Table.Cell>
                                     <Table.Cell>
-                                        <Button positive>Approve</Button>
+                                        <Button positive onClick={()=>this.props.approveVehicleHistory(item.vehicle_reg_no)}>Approve</Button>
                                     </Table.Cell>
                                 </Table.Row>)} 
 
@@ -107,7 +111,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getVeicleHistory
+        getVeicleHistory,
+        approveVehicleHistory
     }, dispatch)
 }
 

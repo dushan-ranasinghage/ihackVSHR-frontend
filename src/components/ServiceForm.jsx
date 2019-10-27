@@ -168,7 +168,11 @@ class Content extends Component {
                         <Link to="/reviewpage"><Menu.Item as='a'>Review</Menu.Item></Link>
                         <Menu.Menu position='right'>
                             {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
-
+                            <Menu.Item style={{
+                                fontSize:'small'
+                            }}>
+                                {/* Kavinda Senarathne */}
+                            </Menu.Item>
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
                                 window.location.href = '/';
@@ -189,7 +193,7 @@ class Content extends Component {
 
                     <Form>
                         <Form.Group widths='equal'>
-                            <Form.Input fluid label='Vehicle Register Number' placeholder='Vehicle Registration Number' onChange={this.handleChange1} />
+                            <Form.Input fluid label='Vehicle Register Number' placeholder='XX-XXXX' onChange={this.handleChange1} />
                             <Form.Input fluid label='Brand' placeholder='Brand' onChange={this.handleChange2} />
                             <Form.Input fluid label='Model Number' placeholder='Model Number' onChange={this.handleChange3} />
                         </Form.Group>
@@ -198,6 +202,7 @@ class Content extends Component {
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Input fluid label='Parts Added' placeholder='Parts Added' onChange={this.handleChange5} />
+                            {/* <Button positive style={{    marginTop: '30px'}}>Add</Button> */}
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Input fluid label='Customer Name' placeholder='Customer Name' onChange={this.handleChange6} />
@@ -209,6 +214,7 @@ class Content extends Component {
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.TextArea fluid label='Existing Condition of the Vehicle' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' onChange={this.handleChange10} />
+                            
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Select

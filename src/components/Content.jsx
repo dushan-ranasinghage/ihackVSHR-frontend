@@ -111,7 +111,7 @@ class Content extends PureComponent {
                             <Menu.Item style={{
                                 fontSize:'small'
                             }}>
-                                Kavinda Senarathne
+                                {/* Kavinda Senarathne */}
                             </Menu.Item>
                             <Menu.Item as='a' onClick={() => {
                                 window.history.replaceState(null, null, "/");
