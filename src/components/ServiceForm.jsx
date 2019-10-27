@@ -214,7 +214,7 @@ class Content extends Component {
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Input fluid label='Cost' placeholder='Cost' onChange={this.handleChange8} />
-                            <Form.Input fluid label='Milage' placeholder='Milage' onChange={this.handleChange9} />
+                            <Form.Input fluid label='Mileage' placeholder='Mileage' onChange={this.handleChange9} />
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.TextArea fluid label='Existing Condition of the Vehicle' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' onChange={this.handleChange10} />
