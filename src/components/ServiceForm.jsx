@@ -10,7 +10,8 @@ import {
     Table,
     Icon,
     Button,
-    Image
+    Image,
+    Message
 } from 'semantic-ui-react'
 import {
     BrowserRouter as Router,
@@ -46,11 +47,11 @@ class Content extends Component {
         this.handleChange9 = this.handleChange9.bind(this)
         this.handleChange10 = this.handleChange10.bind(this)
         this.handleChange11 = this.handleChange11.bind(this)
-        this.myRef = React.createRef() 
+        this.myRef = React.createRef()
     }
 
     state = {
-
+        showMsg: false
     }
 
     componentDidMount() {
@@ -151,6 +152,8 @@ class Content extends Component {
             inputValue9,
             inputValue10,
             inputValue11)
+        // window.location.reload()
+        this.setState({ showMsg: true })
     }
 
     render() {
@@ -170,7 +173,7 @@ class Content extends Component {
                         <Menu.Menu position='right'>
                             {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
                             <Menu.Item style={{
-                                fontSize:'small'
+                                fontSize: 'small'
                             }}>
                                 {/* Kavinda Senarathne */}
                             </Menu.Item>
@@ -181,7 +184,7 @@ class Content extends Component {
                         </Menu.Menu>
                     </Container>
                 </Menu>
-                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px',paddingTop: '80px',paddingBottom: '80px'  }}>
+                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '80px', paddingBottom: '80px' }}>
 
                     <Header as='h2'>
                         {/* <Icon name='settings' /> */}
@@ -215,7 +218,7 @@ class Content extends Component {
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.TextArea fluid label='Existing Condition of the Vehicle' style={{ fontSize: 'large' }} placeholder='Tell us more about the services...' onChange={this.handleChange10} />
-                            
+
                         </Form.Group>
                         <Form.Group widths='equal'>
                             <Form.Select
@@ -228,14 +231,18 @@ class Content extends Component {
                         </Form.Group>
                         {/* <Form.Button secondary >Reset</Form.Button> */}
                         <Form.Button floated="right" primary onClick={this.onSubmit}>Submit</Form.Button>
+                        <br />
+                        {this.state.showMsg==true?<Message positive class="msg">
+                            <Message.Header>Successfully Submitted the Service History!</Message.Header>
+                        </Message>:''}
                     </Form>
 
                 </Container>
                 <div>
-          <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
-          <Link to="/content"><a aria-current="page" class="ui teal button active" role="button" href="/layouts">
-              <i aria-hidden="true" class="left arrow icon"></i>Dashboard</a></Link></div>
-        </div>
+                    <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
+                        <Link to="/content"><a aria-current="page" class="ui teal button active" role="button" href="/layouts">
+                            <i aria-hidden="true" class="left arrow icon"></i>Dashboard</a></Link></div>
+                </div>
                 <Footer />
 
             </div>

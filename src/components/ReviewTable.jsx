@@ -48,7 +48,7 @@ class ReviewTable extends Component {
                         <Menu.Menu position='right'>
                             {/* <Image src='https://www.aidu.mod.uk/Milflip/img/civ-user.svg' style={{ height: '60px', width: '60px', marginTop: '10px', marginRight: '10px' }} circular /> */}
                             <Menu.Item style={{
-                                fontSize:'small'
+                                fontSize: 'small'
                             }}>
                                 {/* Kavinda Senarathne */}
                             </Menu.Item>
@@ -59,47 +59,47 @@ class ReviewTable extends Component {
                         </Menu.Menu>
                     </Container>
                 </Menu>
-                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '80px',paddingBottom: '80px' }}>
-                <Header as='h2'>
-                    {/* <Icon name='settings' /> */}
-                    <Header.Content>
-                        Pending Services
-                <Header.Subheader>Manage your preferences</Header.Subheader>
-                    </Header.Content>
-                </Header>
-                <Divider clearing />
-                <Segment>
-                <Table singleLine>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>User Name</Table.HeaderCell>
-                            <Table.HeaderCell>Vehicle Number</Table.HeaderCell>
-                            <Table.HeaderCell>Service Details</Table.HeaderCell>
-                            <Table.HeaderCell>Action</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-<Table.Body>
+                <Container text style={{ marginTop: '0em', minHeight: '100vh', minWidth: '1100px', paddingTop: '80px', paddingBottom: '80px' }}>
+                    <Header as='h2'>
+                        {/* <Icon name='settings' /> */}
+                        <Header.Content>
+                            Pending Services
+                <Header.Subheader></Header.Subheader>
+                        </Header.Content>
+                    </Header>
+                    <Divider clearing />
+                    <Segment>
+                        <Table singleLine>
+                            <Table.Header>
+                                <Table.Row>
+                                    <Table.HeaderCell>User Name</Table.HeaderCell>
+                                    <Table.HeaderCell>Vehicle Number</Table.HeaderCell>
+                                    <Table.HeaderCell>Service Details</Table.HeaderCell>
+                                    <Table.HeaderCell>Action</Table.HeaderCell>
+                                </Table.Row>
+                            </Table.Header>
+                            <Table.Body>
 
-{this.props && this.props.vehiclehistory && this.props.vehiclehistory && this.props.vehiclehistory.historyData && this.props.vehiclehistory.historyData.map( (item, i)=>
-<Table.Row key={i}>
-                                    <Table.Cell>{item.customer_name}</Table.Cell>
-                                    <Table.Cell>{item.vehicle_reg_no}</Table.Cell>
-                                    <Table.Cell>{item.service_description}</Table.Cell>
-                                    <Table.Cell>
-                                    <Button negative>Reject</Button>
-                                        <Button positive onClick={()=>this.props.approveVehicleHistory()}>Approve</Button>
-                                    </Table.Cell>
-                                </Table.Row>)}   
+                                {this.props && this.props.vehiclehistory && this.props.vehiclehistory && this.props.vehiclehistory.historyData && this.props.vehiclehistory.historyData.map((item, i) =>
+                                    <Table.Row key={i}>
+                                        <Table.Cell>{item.customer_name}</Table.Cell>
+                                        <Table.Cell>{item.vehicle_reg_no}</Table.Cell>
+                                        <Table.Cell>{item.service_description}</Table.Cell>
+                                        <Table.Cell>
+                                            <Button negative>Reject</Button>
+                                            <Button positive onClick={() => this.props.approveVehicleHistory()}>Approve</Button>
+                                        </Table.Cell>
+                                    </Table.Row>)}
 
-                    </Table.Body>
-                </Table></Segment>
-            </Container>
-            <div>
-          <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
-          <Link to="/content"><a aria-current="page" class="ui teal button active" role="button" href="/layouts">
-              <i aria-hidden="true" class="left arrow icon"></i>Dashboard</a></Link></div>
-        </div>
-            <Footer />
+                            </Table.Body>
+                        </Table></Segment>
+                </Container>
+                <div>
+                    <div class="float-btn" style={{ position: 'fixed', margin: '2em', bottom: '0px', left: '0px', zIndex: '6' }}>
+                        <Link to="/content"><a aria-current="page" class="ui teal button active" role="button" href="/layouts">
+                            <i aria-hidden="true" class="left arrow icon"></i>Dashboard</a></Link></div>
+                </div>
+                <Footer />
             </div>
         )
     }
